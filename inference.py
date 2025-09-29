@@ -27,6 +27,7 @@ if __name__ == '__main__':
     equi_shape = config['exp_args']['visualizer_args']['equi_shape']
     model = LED2Net.Network(**config['network_args']).to(device)
     params = torch.load(args.ckpt)
+    params = params[0]
     model.load_state_dict(params)
     model.eval()
 
